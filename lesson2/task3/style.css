@@ -1,0 +1,10 @@
+ .wrapper {
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+ img {
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+}

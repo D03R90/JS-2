@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <form action="#" method="post" id="myform">
+        <label for="username">Your name</label>
+        <input type="text" id="username">
+
+        <label for="tel">Your phone number</label>
+        <input type="tel" id="tel" placeholder="+7(000)000-0000" required>
+
+        <label for="mail">Your mail</label>
+        <input type="email" id="mail">
+
+        <label for="freetext">Your text</label>
+        <textarea type="freetext" id="freetext"></textarea>
+
+        <button type="submit" class="button" id="del-btn">Отправить</button>
+    </form>
+<!--     <script src="js3.js"></script> -->
+    <script>
+        window.onload = () => {
+            document.getElementById('myform').addEventListener('submit', event => {
+                event.preventDefault(); //Отменить отправку
+                let nameUser = document.getElementById('username').value;
+                if (/[\wа-яё]+()[\wа-яё]+/i.test(nameUser)) {
+                    //alert('Форма "Your name" заполнена верно!')
+                } else {
+                    alert('Ошибка в заполнении формы "Your name"')
+                }
+            })
+
+            document.getElementById('myform').addEventListener('submit', event => {
+                event.preventDefault(); //Отменить отправку
+                let tel = document.getElementById('tel').value;
+                if (/\+7\(\d+\)\d+-\d+/i.test(tel)) {
+                    //alert('Форма "Your phone number" заполнена верно!')
+                } else {
+                    alert('Ошибка в заполнении формы "Your phone number"')
+                }
+
+            })
+
+            document.getElementById('myform').addEventListener('submit', event => {
+                event.preventDefault(); //Отменить отправку
+                let mail = document.getElementById('mail').value;
+                if (/\w+[-.]?\w+(@)\w+.(ru|com)/i.test(mail)) {
+                    //alert('Форма "Your mail" заполнена верно!')
+                } else {
+                    alert('Ошибка в заполнении формы "Your mail"')
+                }
+
+            })
+
+            document.getElementById('myform').addEventListener('submit', event => {
+                event.preventDefault(); //Отменить отправку
+                let freetext = document.getElementById('freetext').value;
+                if (/[\wа-яё]+/gi.test(freetext)) {
+                    //alert('Форма "Your text" заполнена верно!')
+                } else {
+                    alert('Ошибка в заполнении формы "Your text"')
+                }
+
+            });
+        }
+    </script>
+</body>
+
+</html>

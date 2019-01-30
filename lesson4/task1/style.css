@@ -1,0 +1,84 @@
+#tabs {
+    width: 900px;
+    margin: 40px auto 0;
+    border-radius: 14px;
+    background: #FFF1AF;
+    margin-bottom: 50px;
+}
+
+#tabs_vertically {
+    width: 900px;
+    margin: 40px auto 0;
+    border-radius: 14px;
+    background: #D1F1BA;
+}
+
+#tabs .tabs {
+    margin-bottom: 3px;
+}
+
+#tabs_vertically .tabs_vertically {
+    margin-bottom: 3px;
+    float: left;
+    margin-bottom: 3px;
+    margin: 0 10px 5px 0;
+}
+
+#tabs_vertically .tabs_vertically:after,
+#tabs .tabs:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#tabs .tabs .tab {
+    float: left;
+    cursor: pointer;
+    border-right: 2px solid #fff;
+    padding: 10px 20px;
+}
+#tabs .tabs .first-tab,
+#tabs_vertically .tabs_vertically .first-tab {
+    border-radius: 14px 0 0 0;
+}
+
+#tabs_vertically .tabs_vertically .tab {
+    cursor: pointer;
+    width: 126px;
+    border-bottom: 2px solid #fff;
+    padding: 10px 20px;
+}
+
+#tabs_vertically .tabs_vertically .tab:last-child,
+#tabs .tabs .tab:last-child {
+    border-right: none;
+}
+
+#tabs .tabs .tab:hover,
+#tabs .tabs .tab.active {
+    background-color: #FFBB40;
+    color: #A66B00;
+    transition: all 0.5s;
+}
+
+#tabs_vertically .tabs_vertically .tab:hover,
+#tabs_vertically .tabs_vertically .tab.active {
+    background-color: #52A529;
+    color: #95EE6B;
+    transition: all 0.5s;
+}
+
+#tabs_vertically .content .tab-cont,
+#tabs .content .tab-cont {
+    display: none;
+    padding: 30px 20px;
+}
+
+#tabs .content .tab-cont.active {
+    display: block;
+}
+
+#tabs_vertically .content .tab-cont.active {
+    overflow: hidden;
+    display: block;
+}

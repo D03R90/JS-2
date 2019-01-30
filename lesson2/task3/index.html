@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>title</title>
+</head>
+
+<body>
+	<div id="wrapper"></div>
+	<script src="js.js"></script>
+	<script>
+		/* 		window.onload = () => {
+			let xhr = new XMLHttpRequest();
+			xhr.open('GET', 'wrapper.json', true);
+
+			xhr.onreadystatechange = () => {
+				if (xhr.readyState !== 4) {
+					return;
+				}
+				if (xhr.status !== 200) {
+					console.log('Error', xhr.status, xhr.statusText);
+				} else {
+					console.log('ok', xhr.responseText);
+					let items = [];
+					let myItems = JSON.parse(xhr.responseText);
+					for (let i = 0; i < myItems.length; i++) {
+						items.push(new GalleryItem('galleryItemId', 'gallery__items', 'galleryItemItems', myItems[i].src, myItems[i].alt));
+					}
+					let galleryNew = new Gallery('galleryId', 'gallery', items, 'gallerySrc', 'galleryAlt');
+					document.getElementById('wrapper').innerHTML = galleryNew.render();
+				}
+				xhr.send();
+				}
+			} */
+
+		fetch('wrapper.json')
+			.then(result => {
+				console.log(result);
+				//return result.json()
+			})
+			.then(data => {
+				resolve(data);
+				console.log(data);
+				block.innerHTML = `Телефон ${data.json} (${data.title})`;
+			})
+			.catch(error => {
+				reject(error);
+				console.log(error);
+			});
+		for (let i = 0; i < myItems.length; i++) {
+			items.push(new GalleryItem('galleryItemId', 'gallery__items', 'galleryItemItems', myItems[i].src, myItems[i].alt));
+		}
+		let galleryNew = new Gallery('galleryId', 'gallery', items, 'gallerySrc', 'galleryAlt');
+		document.getElementById('wrapper').innerHTML = galleryNew.render();
+	</script>
+</body>
+
+</html>

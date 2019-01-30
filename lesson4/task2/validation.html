@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <form action="" class="some" id="myform">
+        <div>
+            <label>
+                Your name <br>
+                <input type="text" name="name" id="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                Your phone <br>
+                <input type="tel" class="phone" name="phone" id="phone">
+            </label>
+        </div>
+        <div>
+            <label>
+                Your email <br>
+                <input type="email" name="email" id="email">
+            </label>
+        </div>
+        <div>
+            <label>
+                Your city <br>
+                <select name="city" id="city"></select>
+            </label>
+        </div>
+        <button id="val-btn">Submit</button>
+    </form>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.mask.min.js"></script>
+    <script src="js4.js"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('myform').addEventListener('submit', event => {
+                event.preventDefault();
+                let myvalid = new Validator('myform');
+                document.getElementById("val-btn").disabled = true; //Блокировка кнопки после первого нажатия
+            })
+//            let objSel = document.getElementById("city");
+//            //Создаем новый объект Option и заносим его в коллекцию options
+//            objSel.options[0] = new Option("Москва", "str0");
+//            objSel.options[1] = new Option("Нью-йорк", "str1");
+//            objSel.options[2] = new Option("Париж", "str2");
+//            objSel.options[3] = new Option("Лондон", "str3");
+//            objSel.options[4] = new Option("Париж", "str4");
+        }
+    </script>
+    <script>
+    $(document).ready(() => {
+       //  Task 2
+        let list = 'russian-cities.json';
+        fetch(list)
+            .then(result => result.json())
+            .then(data => {
+                let $select = $('#city');
+                for (let city of data){
+                    $select.append($(`<option value="${city.name}">${city.name}</option>`))
+                }
+            })
+		});
+	</script>
+
+</body>
+
+</html>

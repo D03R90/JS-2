@@ -1,0 +1,26 @@
+#del-btn {
+	width: 100px;
+	height: 40px;
+	background: #bfd255;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfd255', endColorstr='#9ecb2d', GradientType=0);
+	outline: none;
+}
+
+#del-btn:active {
+	background: #ff2f59;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #ff2f59 0%, #f0000c 50%, #b80003 51%, #ff0314 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #ff2f59 0%, #f0000c 50%, #b80003 51%, #ff0314 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #ff2f59 0%, #f0000c 50%, #b80003 51%, #ff0314 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2f59', endColorstr='#ff0314', GradientType=0);
+}

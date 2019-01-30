@@ -1,0 +1,19 @@
+.menu {
+    background: gainsboro;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    height: 70px;
+}
+
+.sub-menu {height: 0; overflow: hidden; opacity: 0; transition: all 0.5s ease-in;}
+
+.menu a {
+	color: #222222;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    padding: 20px;
+}

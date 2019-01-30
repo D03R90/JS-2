@@ -1,0 +1,20 @@
+#myform {
+	display: table-caption;
+    background: gainsboro;
+    padding: 20px;
+    border: 1px solid;
+}
+#username,
+#tel,
+#mail,
+#freetext {
+    padding: 5px;
+}
+#freetext {
+    width: 170px;
+}
+.button {
+	width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+}
