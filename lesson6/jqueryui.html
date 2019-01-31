@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/all.css">
+
+    <style>
+        #draggable, #resizable, #also{
+            margin-bottom: 30px;
+            width: 300px;
+            height: 300px;
+            background-color: rebeccapurple;
+            border: 1px solid blue;
+        }
+        #parent-draggable{
+            width: 500px;
+            height: 500px;
+            background-color: darkgrey;
+            border: 1px solid #000;
+        }
+        #droppable{
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        #product, #product1{
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="parent-draggable">
+    <div id="draggable"></div>
+</div>
+<button id="btn1">Получить containment</button>
+<button id="btn2">Удалить containment</button>
+<button id="btn3">Назначить containment</button>
+<hr>
+<hr>
+<hr>
+<hr>
+<div id="resizable"></div>
+<div id="also"></div>
+<hr>
+<hr>
+<input type="text" id="text">
+<input type="text" id="datepicker">
+<hr>
+<hr>
+<h2>Droppable</h2>
+<div id="product" data-id="123">Notebook</div>
+<div id="product1" data-id="124">Mouse</div>
+<div id="droppable"></div>
+<button id="btn4">Enable</button>
+<button id="btn5">Disable</button>
+<button id="btn6">Destroy</button>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(() => {
+        // Draggable
+        $('#draggable').draggable({
+            // axis: 'x' // 'y' - ограничение перемещения по оси
+            // revert: true // элемент возращается
+            // containment: 'parent' // ограничивающий родитель
+            containment: '#parent-draggable'
+        });
+        $('#btn1').click(() => {
+            //Getter
+            console.log($('#draggable').draggable('option', 'containment'));
+        });
+        $('#btn2').click(() => {
+            //Setter
+            $('#draggable').draggable('option', 'containment', false);
+        });
+        $('#btn3').click(() => {
+            //Setter
+            $('#draggable').draggable('option', 'containment', 'parent');
+        });
+        $('#btn4').click(() => {
+            $('#draggable').draggable('enable');
+        });
+        $('#btn5').click(() => {
+            $('#draggable').draggable('disable');
+        });
+        $('#btn6').click(() => {
+            $('#draggable').draggable('destroy');
+        });
+
+        // Drag & drop
+
+        $('#product').draggable();
+        $('#product1').draggable();
+
+        $('#droppable').droppable({
+            drop: (event, ui) => {
+                console.log($(ui.draggable[0]).attr('data-id'));
+                //TODO: cart.addProduct($(ui.draggable[0]).attr('data-id'));
+            }
+        });
+
+        //Resizable
+        $('#resizable').resizable({
+            // maxHeight: 500,
+            // maxWidth: 500
+            // animate: true
+            alsoResize: '#also'
+        });
+        let availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        //Autocomplete
+        $('#text').autocomplete({
+            source: availableTags
+        });
+
+        // Datepicker
+        $('#datepicker').datepicker({
+            firstDay: 1,
+            dateFormat: 'dd.mm.yy',
+            // dayNamesMin: ['Вс', 'Пн'...]
+            // monthNames: ['Январь', ...]
+        })
+    })
+</script>
+</body>
+</html>

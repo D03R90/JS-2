@@ -1,0 +1,10 @@
+$bg_color: orange;
+$text_color: white;
+@import "some";
+body{
+  background-color: $bg_color;
+  p {
+    color: $text_color;
+    font-size: 3em;
+  }
+}
